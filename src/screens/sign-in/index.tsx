@@ -19,7 +19,7 @@ export const SignIn = ({navigation}: SignUpScreenProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onGooglePress = () => {}; // TODO: Implement Google Sign-In
+  const onGooglePress = () => {};
 
   return (
     <View style={styles.container}>
@@ -50,17 +50,17 @@ export const SignIn = ({navigation}: SignUpScreenProps) => {
           <View style={styles.termsContainer}>
             <Text style={styles.termsLink}>Forgot Password?</Text>
           </View>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('SignUp')}>
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SignIn')}
-            style={styles.signInContainer}>
+          <TouchableOpacity style={styles.signInContainer}>
             <Text style={styles.termsText}>
               New to our platform?
-              <Text style={styles.termsLink}> Create an account</Text>
+              <Text
+                style={styles.termsLink}
+                onPress={() => navigation.navigate('SignUp')}>
+                &nbsp;Create an account
+              </Text>
             </Text>
           </TouchableOpacity>
           <Text style={styles.separator}>or</Text>

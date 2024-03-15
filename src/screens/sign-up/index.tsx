@@ -91,7 +91,7 @@ export const SignUp = ({navigation}: SignUpScreenProps) => {
           {/* Google Sign-In Button */}
           <TouchableOpacity style={styles.googleButton} onPress={onGooglePress}>
             <Image
-              source={require('../../assets/images/googleIcon.png')} // Make sure to have the correct path to your Google logo
+              source={require('../../assets/images/googleIcon.png')}
               style={styles.googleLogo}
             />
             <Text style={styles.googleButtonText}>Continue With Google</Text>

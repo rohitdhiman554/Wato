@@ -88,6 +88,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     borderRadius: 8,
     marginBottom: 16,
+    borderColor: 'white',
+    borderWidth: 1,
   },
   buttonText: {
     color: 'white',
