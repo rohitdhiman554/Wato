@@ -1,8 +1,11 @@
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
+import {RootStackParamList} from '../../../App';
+
 type GetStartedScreenProps = {
-  navigation: any;
+  navigation: StackNavigationProp<RootStackParamList>;
 };
 
 const GetStartedScreen = ({navigation}: GetStartedScreenProps) => {
@@ -10,18 +13,18 @@ const GetStartedScreen = ({navigation}: GetStartedScreenProps) => {
     <View style={styles.container}>
       <View style={styles.imagesContainer}>
         <Image
-          source={require('../assets/images/god-rays.png')}
+          source={require('../../assets/images/god-rays.png')}
           style={styles.image}
         />
         <Image
-          source={require('../assets/images/sparkles.png')}
+          source={require('../../assets/images/sparkles.png')}
           style={[styles.image, styles.imageOverlap]}
         />
       </View>
 
       <View style={styles.textContainer}>
         <Image
-          source={require('../assets/images/logo.png')}
+          source={require('../../assets/images/logo.png')}
           style={styles.logo}
         />
         <Text style={styles.title}>Zero Cost</Text>

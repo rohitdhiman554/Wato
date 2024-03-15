@@ -1,9 +1,9 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {SignIn} from './src/screens/SignIn';
-import {SignUp} from './src/screens/SignUp';
-import GetStartedScreen from './src/screens/GetStarted';
+import GetStartedScreen from './src/screens/get-started';
+import {SignIn} from './src/screens/sign-in';
+import {SignUp} from './src/screens/sign-up';
 
 export type RootStackParamList = {
   GetStarted: undefined;

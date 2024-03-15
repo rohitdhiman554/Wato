@@ -9,30 +9,39 @@ import {
 } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
-type RootStackParamList = {
-  SignUp: undefined;
-};
+import {RootStackParamList} from '../../../App';
 
 type SignUpScreenProps = {
-  navigation: StackNavigationProp<RootStackParamList, 'SignUp'>;
+  navigation: StackNavigationProp<RootStackParamList>;
 };
 
-export const SignIn = ({navigation}: SignUpScreenProps) => {
+export const SignUp = ({navigation}: SignUpScreenProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
-  const onGooglePress = () => {}; // TODO: Implement Google Sign-In
+  const onGooglePress = () => {
+    // TODO: Handle Google Sign-In here
+  };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Please sign-in to your account</Text>
+      <Text style={styles.text}>Please sign-up for your account</Text>
       <View style={styles.innerContainer}>
         <Image
-          source={require('../assets/images/god-rays.png')}
+          source={require('../../assets/images/god-rays.png')}
           style={styles.image}
         />
         <View style={styles.blurLayer} />
         <View style={styles.containerInside}>
+          <TextInput
+            style={styles.input}
+            placeholder="Name"
+            value={name}
+            onChangeText={setName}
+            placeholderTextColor="#888"
+          />
           <TextInput
             style={styles.input}
             placeholder="Email"
@@ -50,25 +59,39 @@ export const SignIn = ({navigation}: SignUpScreenProps) => {
             secureTextEntry
           />
           <View style={styles.termsContainer}>
-            <Text style={styles.termsLink}>Forgot Password?</Text>
+            <TouchableOpacity
+              style={styles.checkbox}
+              onPress={() => setAgreeToTerms(!agreeToTerms)}>
+              <View
+                style={[
+                  styles.checkboxInner,
+                  agreeToTerms && styles.checkboxInnerChecked,
+                ]}
+              />
+            </TouchableOpacity>
+            <Text style={styles.termsText}>
+              I agree
+              <Text style={styles.termsLink}> to privacy policy & terms</Text>
+            </Text>
           </View>
           <TouchableOpacity
             style={styles.button}
             onPress={() => navigation.navigate('SignUp')}>
-            <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate('SignUp')}
+            onPress={() => navigation.navigate('SignIn')}
             style={styles.signInContainer}>
             <Text style={styles.termsText}>
-              New to our platform?
-              <Text style={styles.termsLink}> Create an account</Text>
+              Already have an account?
+              <Text style={styles.termsLink}> Sign in instead</Text>
             </Text>
           </TouchableOpacity>
           <Text style={styles.separator}>or</Text>
+          {/* Google Sign-In Button */}
           <TouchableOpacity style={styles.googleButton} onPress={onGooglePress}>
             <Image
-              source={require('../assets/images/googleIcon.png')}
+              source={require('../../assets/images/googleIcon.png')} // Make sure to have the correct path to your Google logo
               style={styles.googleLogo}
             />
             <Text style={styles.googleButtonText}>Continue With Google</Text>
@@ -88,6 +111,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     borderRadius: 8,
+    height: 500,
     display: 'flex',
     marginVertical: 20,
     borderWidth: 1,
@@ -118,18 +142,9 @@ const styles = StyleSheet.create({
     opacity: 0.1,
     backgroundColor: 'gray',
   },
-  image: {
-    resizeMode: 'contain',
-    top: 0,
-    right: 0,
-    position: 'absolute',
-    zIndex: 0,
-  },
   termsContainer: {
     flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'flex-end',
-    display: 'flex',
+    alignItems: 'center',
     marginVertical: 16,
   },
   checkbox: {
@@ -153,6 +168,13 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'white',
   },
+  image: {
+    resizeMode: 'contain',
+    top: 0,
+    right: 0,
+    position: 'absolute',
+    zIndex: 0,
+  },
   button: {
     width: '100%',
     padding: 12,
@@ -167,7 +189,6 @@ const styles = StyleSheet.create({
   },
   termsLink: {
     color: '#D4FB54',
-    textAlign: 'right',
   },
   signInContainer: {
     marginTop: 20,
@@ -185,7 +206,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     borderColor: '#FFF',
     borderWidth: 1,
-    marginBottom: 8,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
