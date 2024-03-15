@@ -28,6 +28,7 @@ export const SignIn = ({navigation}: SignUpScreenProps) => {
         <Image
           source={require('../../assets/images/god-rays.png')}
           style={styles.image}
+          blurRadius={50}
         />
         <View style={styles.blurLayer} />
         <View style={styles.containerInside}>
