@@ -5,7 +5,7 @@ type GetStartedScreenProps = {
   navigation: any;
 };
 
-const GetStartedScreen: React.FC<GetStartedScreenProps> = ({navigation}) => {
+const GetStartedScreen = ({navigation}: GetStartedScreenProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.imagesContainer}>

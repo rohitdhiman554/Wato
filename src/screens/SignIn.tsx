@@ -17,15 +17,11 @@ type SignUpScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, 'SignUp'>;
 };
 
-export const SignIn: React.FC<SignUpScreenProps> = ({navigation}) => {
+export const SignIn = ({navigation}: SignUpScreenProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
-  const onGooglePress = () => {
-    // TODO: Handle Google Sign-In here
-  };
+  const onGooglePress = () => {}; // TODO: Implement Google Sign-In
 
   return (
     <View style={styles.container}>
@@ -59,7 +55,7 @@ export const SignIn: React.FC<SignUpScreenProps> = ({navigation}) => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => navigation.navigate('SignUp')}>
-            <Text style={styles.buttonText}>Sign Up</Text>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate('SignUp')}
